@@ -9,7 +9,8 @@
     "ep": "electron-packager . --platform linux --arch x64 --out releases/ --asar --icon resources/icon/64/whatsapp.png",
     "deb64": "electron-installer-debian --src releases/whatsapp-linux-linux-x64/ --dest releases/deb/ --arch amd64 --config config.json",
     "rpm64": "electron-installer-redhat --src releases/whatsapp-linux-linux-x64/ --dest releases/rpm/ --arch amd64 --config config.json",
-    "build": "rm -rf releases && npm run ep && npm run deb64 && npm run rpm64"
+    "flatpak64": "electron-installer-flatpak --src releases/whatsapp-linux-linux-x64/ --dest releases/flatpak/ --arch amd64 --config config.json",
+    "build": "rm -rf releases && npm run ep && npm run deb64 && npm run rpm64 && npm run flatpak64"
   },
   "main": "main.js",
   "version": "0.0.1",
@@ -18,6 +19,7 @@
   "author": "KerronGordon",
   "devDependencies": {
     "electron-installer-debian": "^0.5.0",
+    "electron-installer-flatpak": "^0.5.0",
     "electron-installer-redhat": "^0.3.1",
     "electron-packager": "^8.5.2"
   }

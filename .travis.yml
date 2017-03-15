@@ -7,11 +7,17 @@ script:
     - npm install -g electron
     - npm install -g electron-installer-debian
     - npm install -g electron-installer-redhat
+    - npm install -g electron-installer-flatpak
     - npm install -g electron-packager
     - npm install
 install:
+    - sudo add-apt-repository ppa:alexlarsson/flatpak
+    - sudo apt update
+    - sudo apt install flatpak
     - sudo apt-get install rpm
 after_success:
+    - flatpak --user remote-add --from gnome https://sdk.gnome.org/gnome.flatpakrepo
+    - flatpak --user install gnome org.freedesktop.Platform/x86_64/1.4 org.freedesktop.Platform/i386/1.4
     - npm run build
 
 deploy:
@@ -21,6 +27,7 @@ deploy:
   file:
     - "releases/deb/*"
     - "releases/rpm/*"
+    - "releases/flatpak/*"
   skip_cleanup: true
   on:
     tags: true
