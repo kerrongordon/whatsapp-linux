@@ -18,8 +18,8 @@ deploy:
   provider: releases
   api_key: "$GITHUB_TOKEN"
   file:
-    - "releases/deb"
-    - "releases/rpm"
+    - "releases/deb/*"
+    - "releases/rpm/*"
   skip_cleanup: true
   on:
     tags: true
