@@ -1,4 +1,6 @@
-# electron-quick-start
+# whatsapp-linux
+
+[![Build Status](https://travis-ci.org/kerrongordon/whatsapp-linux.svg?branch=master)](https://travis-ci.org/kerrongordon/whatsapp-linux)
 
 **Clone and run for a quick way to see Electron in action.**
 

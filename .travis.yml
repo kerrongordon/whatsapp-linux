@@ -14,5 +14,13 @@ install:
 after_success:
     - npm run build
 
-
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file:
+    - "releases/deb"
+    - "releases/rpm"
+  skip_cleanup: true
+  on:
+    tags: true
 
