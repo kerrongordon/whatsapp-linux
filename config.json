@@ -1,0 +1,17 @@
+{
+    "dest": "releases/deb/",
+    "icon": {
+        "16x16": "resources/icon/16/whatsapp.png",
+        "22x22": "resources/icon/22/whatsapp.png",
+        "24x24": "resources/icon/24/whatsapp.png",
+        "32x32": "resources/icon/32/whatsapp.png",
+        "48x48": "resources/icon/48/whatsapp.png",
+        "64x64": "resources/icon/64/whatsapp.png"
+    },
+    "categories": [
+        "Network"
+    ],
+    "lintianOverrides": [
+        "changelog-file-missing-in-native-package"
+    ]
+}

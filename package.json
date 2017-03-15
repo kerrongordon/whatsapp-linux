@@ -1,14 +1,24 @@
 {
-    "name": "whatsapp-linux",
-    "dependencies": {
-        "electron": "^1.6.3"
-    },
-    "scripts": {
-        "start": "electron ."
-    },
-    "main": "main.js",
-    "version": "0.0.1",
-    "license": "MIT",
-    "description": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
-    "author": "Kerron Gordon"
+  "name": "whatsapp-linux",
+  "dependencies": {
+    "electron": "^1.6.3",
+    "electron-context-menu": "^0.8.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "ep": "electron-packager . --platform linux --arch x64 --out releases/ --asar --icon resources/icon/64/whatsapp.png",
+    "deb64": "electron-installer-debian --src releases/whatsapp-linux-linux-x64/ --dest releases/deb/ --arch amd64 --config config.json",
+    "rpm64": "electron-installer-redhat --src releases/whatsapp-linux-linux-x64/ --dest releases/rpm/ --arch amd64 --config config.json",
+    "build": "rm -rf releases && npm run ep && npm run deb64 && npm run rpm64"
+  },
+  "main": "main.js",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
+  "author": "KerronGordon",
+  "devDependencies": {
+    "electron-installer-debian": "^0.5.0",
+    "electron-installer-redhat": "^0.3.1",
+    "electron-packager": "^8.5.2"
+  }
 }
