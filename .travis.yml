@@ -16,8 +16,7 @@ after_success:
 
 deploy:
   provider: releases
-  api_key:
-    secure: YOUR_API_KEY_ENCRYPTED
+  api_key: "$GITHUB_TOKEN"
   file:
     - "releases/deb"
     - "releases/rpm"
