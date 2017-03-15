@@ -10,10 +10,11 @@ script:
     - npm install -g electron-installer-flatpak
     - npm install -g electron-packager
     - npm install
+before_install:
+    - sudo add-apt-repository ppa:alexlarsson/flatpak -y
+    - sudo apt update -q
 install:
-    - sudo add-apt-repository ppa:alexlarsson/flatpak
-    - sudo apt update
-    - sudo apt install flatpak
+    - sudo apt install flatpak -y
     - sudo apt-get install rpm
 after_success:
     - flatpak --user remote-add --from gnome https://sdk.gnome.org/gnome.flatpakrepo
