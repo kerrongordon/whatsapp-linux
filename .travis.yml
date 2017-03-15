@@ -1,0 +1,18 @@
+dist: trusty
+sudo: required
+language: node_js
+node_js:
+  - "6"
+script:
+    - npm install -g electron
+    - npm install -g electron-installer-debian
+    - npm install -g electron-installer-redhat
+    - npm install -g electron-packager
+    - npm install
+install:
+    - sudo apt-get install rpm
+after_success:
+    - npm run build
+
+
+
