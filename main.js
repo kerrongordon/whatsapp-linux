@@ -1,83 +1,85 @@
-const { app, BrowserWindow, Tray, Menu, nativeImage } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, Tray, Menu, nativeImage } = require('electron')
+const contMenu = require('electron-context-menu')
+const path = require('path')
 
-require('electron-context-menu')({
+let appName = 'WhatsApp-linux'
+let win
+let tray = null
+let appUrl = 'https://web.whatsapp.com/'
+let icon = path.join(__dirname, 'resources/icon/64/whatsapp.png')
+let iconTray = path.join(__dirname, 'resources/icon/16/whatsapp.png')
+
+contMenu({
     prepend: (params, browserWindow) => [{
         label: 'Menu',
-        // only show it when right-clicking images
         visible: params.mediaType === 'image'
     }]
-});
-
-let win;
-let tray = null;
-let icon = path.join(__dirname, 'resources/icon/64/whatsapp.png');
-let iconTray = path.join(__dirname, 'resources/icon/16/whatsapp.png');
-
-function createMainWindow() {
-    win = new BrowserWindow({
-        height: 600,
-        width: 900,
-        icon: icon,
-        show: false,
-        autoHideMenuBar: true
-    });
-
-    win.loadURL('https://web.whatsapp.com/');
-
-    win.on('ready-to-show', () => {
-        win.show();
-    });
-
-    win.on('minimize', (event) => {
-        event.preventDefault();
-        win.hide();
-    });
-
-    win.on('close', (event) => {
-        if (!app.isQuiting) {
-            event.preventDefault();
-            win.hide();
-        }
-        return false;
-    });
-
-
-    // tray icon
-
-    tray = new Tray(iconTray);
-    const contextMenu = Menu.buildFromTemplate([{
-            label: 'Toggle',
-            click: () => {
-                win.isVisible() ? win.hide() : win.show()
-            }
-        },
-        { type: 'separator' },
-        {
-            label: 'Quit',
-            click: () => {
-                app.isQuiting = true;
-                app.quit();
-            }
-        }
-    ]);
-    tray.setToolTip('WhatsApp');
-    tray.setContextMenu(contextMenu);
-
-}
+})
 
 app.on('ready', () => {
-    createMainWindow();
+    appWindow()
+    trayIcon()
 });
 
 app.on('activate', () => {
     if (!win) {
-        createMainWindow();
+        createMainWindow()
     }
 });
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit();
+        app.quit()
     }
 });
+
+const appWindow = () => {
+    win = new BrowserWindow({
+        height: 600,
+        width: 900,
+        icon: icon,
+        show: false,
+        title: appName,
+        autoHideMenuBar: true
+    })
+
+    win.loadURL(appUrl)
+
+    win.on('ready-to-show', () => {
+        win.show()
+    });
+
+    win.on('close', (event) => {
+        if (!app.isQuiting) {
+            event.preventDefault()
+            win.hide()
+        }
+        return false
+    })
+}
+
+const trayIcon = () => {
+    const contextMenu = Menu.buildFromTemplate([{
+            label: 'Toggle',
+            click: () => winIsVisible()
+        },
+        { type: 'separator' },
+        {
+            label: 'Quit',
+            click: () => winIsCloseIng()
+        }
+    ]);
+    tray = new Tray(iconTray)
+    tray.on('click', winIsVisible)
+    tray.setToolTip(appName)
+    tray.setContextMenu(contextMenu)
+}
+
+const winIsVisible = () => {
+    win.isVisible() ? win.hide() : win.show()
+}
+
+const winIsCloseIng = () => {
+    app.isQuiting = true
+    app.quit()
+}

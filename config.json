@@ -1,5 +1,13 @@
 {
-    "dest": "releases/deb/",
+    "name": "whatsapp-linux",
+    "productName": "WhatsApp Linux",
+    "genericName": "Web Browser",
+    "description": "WhatsApp is a minimal Electron application",
+    "version": "0.1.0",
+    "license": "MIT",
+    "compressionLevel": "5",
+    "productDescription": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
+    "src": "releases/whatsapp-linux-linux-x64/",
     "icon": {
         "16x16": "resources/icon/16/whatsapp.png",
         "22x22": "resources/icon/22/whatsapp.png",
