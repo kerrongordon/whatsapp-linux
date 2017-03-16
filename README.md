@@ -18,5 +18,6 @@ cd whatsapp-linux
 npm install
 # Run the app
 npm start
+```
 
 [icons used are from papirus icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
