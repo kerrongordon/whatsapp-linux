@@ -13,7 +13,9 @@ install:
     - sudo apt-get install rpm
 after_success:
     - npm run build
-
+    - npm run deb64
+    - npm run rpm64
+    - cd releases/ && mkdir tar && cd tar && tar -zcvf whatsapp-linux.tar.gz ../whatsapp-linux-linux-x64 && cd ../../
 deploy:
   provider: releases
   api_key: "$GITHUB_TOKEN"
@@ -21,6 +23,7 @@ deploy:
   file:
     - "releases/deb/*"
     - "releases/rpm/*"
+    - "releases/tar/*"
   skip_cleanup: true
   on:
     tags: true

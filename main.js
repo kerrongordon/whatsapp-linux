@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray, Menu, nativeImage } = require('electron')
+const { app, BrowserWindow, Tray, Menu, nativeImage, shell } = require('electron')
 const contMenu = require('electron-context-menu')
 const path = require('path')
 
@@ -18,6 +18,7 @@ contMenu({
 
 app.on('ready', () => {
     appWindow()
+    mainMenuBar()
     trayIcon()
 });
 
@@ -25,18 +26,20 @@ app.on('activate', () => {
     if (!win) {
         createMainWindow()
     }
+    return false
 });
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
+    return false
 });
 
 const appWindow = () => {
     win = new BrowserWindow({
         height: 600,
-        width: 900,
+        width: 1000,
         icon: icon,
         show: false,
         title: appName,
@@ -70,16 +73,107 @@ const trayIcon = () => {
         }
     ]);
     tray = new Tray(iconTray)
-    tray.on('click', winIsVisible)
     tray.setToolTip(appName)
     tray.setContextMenu(contextMenu)
 }
 
 const winIsVisible = () => {
     win.isVisible() ? win.hide() : win.show()
+    return false
 }
 
 const winIsCloseIng = () => {
     app.isQuiting = true
     app.quit()
+}
+
+
+const mainMenuBar = () => {
+    const menuBar = [{
+            label: 'WhatsApp Linux',
+            submenu: [{
+                label: 'Quit',
+                click: () => winIsCloseIng()
+            }]
+        },
+        {
+            label: 'Edit',
+            submenu: [{
+                    role: 'undo'
+                },
+                {
+                    role: 'redo'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'cut'
+                },
+                {
+                    role: 'copy'
+                },
+                {
+                    role: 'paste'
+                },
+                {
+                    role: 'pasteandmatchstyle'
+                },
+                {
+                    role: 'delete'
+                },
+                {
+                    role: 'selectall'
+                }
+            ]
+        },
+        {
+            label: 'View',
+            submenu: [{
+                    role: 'reload'
+                },
+                {
+                    role: 'forcereload'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'resetzoom'
+                },
+                {
+                    role: 'zoomin'
+                },
+                {
+                    role: 'zoomout'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            role: 'window',
+            submenu: [{
+                    role: 'minimize'
+                },
+                {
+                    role: 'close'
+                }
+            ]
+        },
+        {
+            role: 'help',
+            submenu: [{
+                label: 'Learn More',
+                click() { shell.openExternal('https://github.com/kerrongordon/whatsapp-linux') }
+            }]
+        }
+    ]
+
+    const menu = Menu.buildFromTemplate(menuBar)
+    Menu.setApplicationMenu(menu)
 }
