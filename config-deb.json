@@ -3,9 +3,10 @@
     "productName": "WhatsApp Linux",
     "genericName": "Web Browser",
     "description": "WhatsApp is a minimal Electron application",
+    "homepage": "https://github.com/kerrongordon/whatsapp-linux",
+    "section": "non-free/web",
     "version": "0.1.1",
     "license": "MIT",
-    "compressionLevel": "9",
     "productDescription": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
     "src": "releases/whatsapp-linux-linux-x64/",
     "icon": {
@@ -25,6 +26,12 @@
         "512x512": "resources/icon/512/whatsapp.svg",
         "1024x1024": "resources/icon/1024/whatsapp.svg"
     },
+    "depends": [
+        "libappindicator1",
+        "libdbusmenu-gtk4",
+        "libindicator7",
+        "libgconf-2-4"
+    ],
     "categories": [
         "Network"
     ],

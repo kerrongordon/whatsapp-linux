@@ -1,0 +1,40 @@
+{
+    "name": "whatsapp-linux",
+    "productName": "WhatsApp Linux",
+    "genericName": "Web Browser",
+    "description": "WhatsApp is a minimal Electron application",
+    "homepage": "https://github.com/kerrongordon/whatsapp-linux",
+    "section": "non-free/web",
+    "version": "0.1.1",
+    "license": "MIT",
+    "productDescription": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
+    "src": "releases/whatsapp-linux-linux-x64/",
+    "icon": {
+        "16x16": "resources/icon/16/whatsapp.svg",
+        "22x22": "resources/icon/22/whatsapp.svg",
+        "24x24": "resources/icon/24/whatsapp.svg",
+        "32x32": "resources/icon/32/whatsapp.svg",
+        "36x36": "resources/icon/36/whatsapp.svg",
+        "42x42": "resources/icon/42/whatsapp.svg",
+        "48x48": "resources/icon/48/whatsapp.svg",
+        "64x64": "resources/icon/64/whatsapp.svg",
+        "72x72": "resources/icon/72/whatsapp.svg",
+        "96x96": "resources/icon/96/whatsapp.svg",
+        "128x128": "resources/icon/128/whatsapp.svg",
+        "192x192": "resources/icon/192/whatsapp.svg",
+        "256x256": "resources/icon/256/whatsapp.svg",
+        "512x512": "resources/icon/512/whatsapp.svg",
+        "1024x1024": "resources/icon/1024/whatsapp.svg"
+    },
+    "requires": [
+        "libappindicator1",
+        "libdbusmenu-gtk4",
+        "libindicator7"
+    ],
+    "categories": [
+        "Network"
+    ],
+    "lintianOverrides": [
+        "changelog-file-missing-in-native-package"
+    ]
+}

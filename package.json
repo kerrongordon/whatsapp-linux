@@ -7,8 +7,8 @@
     "scripts": {
         "start": "electron .",
         "ep": "electron-packager . --platform linux --arch x64 --out releases/ --asar --icon resources/icon/64/whatsapp.png",
-        "deb64": "electron-installer-debian --dest releases/deb/ --arch amd64 --config config.json",
-        "rpm64": "electron-installer-redhat --dest releases/rpm/ --arch x86_64 --config config.json",
+        "deb64": "electron-installer-debian --dest releases/deb/ --arch amd64 --config config-deb.json",
+        "rpm64": "electron-installer-redhat --dest releases/rpm/ --arch x86_64 --config config-rpm.json",
         "build": "rm -rf releases && npm run ep"
     },
     "main": "main.js",
