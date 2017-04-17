@@ -5,7 +5,7 @@
     "description": "WhatsApp is a minimal Electron application",
     "homepage": "https://github.com/kerrongordon/whatsapp-linux",
     "section": "non-free/web",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "productDescription": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
     "src": "releases/whatsapp-linux-linux-x64/",

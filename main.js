@@ -39,7 +39,7 @@ app.on('window-all-closed', () => {
 const appWindow = () => {
     win = new BrowserWindow({
         height: 600,
-        width: 1000,
+        width: 900,
         icon: icon,
         show: false,
         title: appName,

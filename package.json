@@ -12,7 +12,7 @@
         "build": "rm -rf releases && npm run ep"
     },
     "main": "main.js",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "description": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
     "author": "KerronGordon",
@@ -21,8 +21,8 @@
         "url": "git@github.com:kerrongordon/whatsapp-linux.git"
     },
     "devDependencies": {
-        "electron-installer-debian": "^0.5.0",
-        "electron-installer-redhat": "^0.3.1",
-        "electron-packager": "^8.5.2"
+        "electron-installer-debian": "^0.5.1",
+        "electron-installer-redhat": "^0.4.0",
+        "electron-packager": "^8.6.0"
     }
 }
