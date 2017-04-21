@@ -3,22 +3,22 @@ name: whatsapp-linux
 version: 0.1.2
 summary: WhatsApp is a minimal Electron application
 description: WhatsApp is a minimal Electron application build for linux using the whatsapp website
-confinement: "strict"
+
+confinement: strict
 
 apps:
   whatsapp-linux:
-    command: desktop-launch $SNAP/whatsapp-linux.wrapper
-    plugs:
-     - browser-support
-     - network
-     - gsettings
+    command: desktop-launch $SNAP/usr/lib/whatsapp-linux
+    plugs: [X11, network, home, unity7, browser-support, pulseaudio, gsettings]
 
 parts:
-  src:
+  node:
     plugin: nodejs
+    source: https://github.com/kerrongordon/whatsapp-linux/archive/v0.1.2.tar.gz
     node-packages:
-     - electron
-    source: git://github.com/kerrongordon/whatsapp-linux
+      - electron
+      - electron-context-menu
+      - electron-packager
 
   deps:
     plugin: nil
@@ -38,8 +38,4 @@ parts:
       - libnotify4
       - libunity9
 
-  launcher:
-    plugin: copy
-    files:
-      whatsapp-linux: whatsapp-linux.wrapper
-    after: [desktop-glib-only]
+

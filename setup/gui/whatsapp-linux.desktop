@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WhatsApp Linux
+Comment=WhatsApp is a minimal Electron application
+GenericName=Web Browser
+Exec=${SNAP}/usr/lib/whatsapp-linux
+Icon=${SNAP}/meta/gui/whatsapp.png
+Type=Application
+StartupNotify=true
+Categories=Network;
+
