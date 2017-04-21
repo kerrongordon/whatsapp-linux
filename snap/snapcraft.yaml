@@ -18,7 +18,7 @@ parts:
     plugin: nodejs
     node-packages:
      - electron
-    source: https://github.com/kerrongordon/whatsapp-linux/tree/v0.1.2
+    source: git://github.com/kerrongordon/whatsapp-linux
 
   deps:
     plugin: nil
