@@ -1,5 +1,7 @@
 # whatsapp-linux
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kerrongordon/whatsapp-linux.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/kerrongordon/whatsapp-linux.svg?branch=master)](https://travis-ci.org/kerrongordon/whatsapp-linux)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/kerrongordon/whatsapp-linux.svg?style=social&style=flat-square)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/kerrongordon/whatsapp-linux/master/LICENSE.md)
