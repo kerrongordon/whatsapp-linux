@@ -1,7 +1,7 @@
 {
     "name": "whatsapp-linux",
     "dependencies": {
-        "electron": "^1.6.3",
+        "electron": "^1.7.11",
         "electron-context-menu": "^0.9.1"
     },
     "scripts": {
@@ -21,8 +21,8 @@
         "url": "git@github.com:kerrongordon/whatsapp-linux.git"
     },
     "devDependencies": {
-        "electron-installer-debian": "^0.7.1",
+        "electron-installer-debian": "^0.7.2",
         "electron-installer-redhat": "^0.5.0",
-        "electron-packager": "^10.0.0"
+        "electron-packager": "^10.1.1"
     }
 }
