@@ -1,7 +1,7 @@
 {
     "name": "whatsapp-linux",
     "dependencies": {
-        "electron": "^1.7.11",
+        "electron": "^1.8.1",
         "electron-context-menu": "^0.9.1"
     },
     "scripts": {
@@ -12,7 +12,7 @@
         "build": "rm -rf releases && npm run ep"
     },
     "main": "main.js",
-    "version": "0.1.4",
+    "version": "1.0.0",
     "license": "MIT",
     "description": "WhatsApp is a minimal Electron application build for linux using the whatsapp website",
     "author": "KerronGordon",
