@@ -24,8 +24,7 @@
         "deb",
         "rpm",
         "tar.gz",
-        "tar.xz",
-        "pacman"
+        "tar.xz"
       ]
     }
   },
