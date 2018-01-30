@@ -33,7 +33,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm run build && electron ./dist/main.js",
+    "prod": "build --linux"
   },
   "devDependencies": {
     "electron": "^1.7.11",
