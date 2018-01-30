@@ -12,7 +12,6 @@ script:
     - yarn install
 install:
     - sudo apt-get install rpm
-    - sudo apt-get install snapcraft
 after_success:
     - yarn lint
     - yarn build
@@ -24,7 +23,6 @@ deploy:
   file:
     - "dist/*.deb"
     - "dist/*.rpm"
-    - "dist/*.snap"
     - "dist/*.tar.gz"
     - "dist/*.tar.xz"
     - "dist/*.AppImage"

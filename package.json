@@ -25,7 +25,6 @@
         "rpm",
         "tar.gz",
         "tar.xz",
-        "snap",
         "pacman"
       ]
     }
