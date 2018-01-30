@@ -1,25 +1,43 @@
 {
-  "name": "electron-quick-start-typescript",
+  "name": "whatsapp",
   "version": "1.0.0",
-  "description": "A minimal Electron application written with Typescript",
+  "description": "fast, simple, secure messaging and calling for free*, available on phones all over the world.",
+  "main": "app/main.js",
+  "maintainers": ["Kerron Gordon"],
+  
+  "author": {
+    "name": "Kerron Gordon",
+    "email": "kgpsounds.com@gmail.com",
+    "url": "https://kerron-gordon.firebaseapp.com"
+  },
+  "license": "MIT",
+  "homepage": "https://kerron-gordon.firebaseapp.com",
+  "build": {
+    "appId": "com.github.kerrongordon.whatsapp",
+    "productName": "WhatsApp",
+
+    "linux": {
+      "category": "Network",
+      "icon": "app/icon/256x256.png",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "tar.gz",
+        "tar.xz",
+        "snap",
+        "pacman"
+      ]
+    }
+  },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "npm run build && electron ./dist/main.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo",
-    "typescript"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.8.1",
+    "electron": "^1.7.11",
+    "electron-builder": "^19.55.2",
     "tslint": "^5.9.1",
     "typescript": "^2.6.2"
   }
