@@ -26,10 +26,6 @@
         "tar.gz",
         "tar.xz",
         "AppImage"
-      ],
-      "arch": [
-        "x64",
-        "ia32"
       ]
     }
   },
