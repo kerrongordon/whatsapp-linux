@@ -1,17 +1,17 @@
 import { app, BrowserWindow } from 'electron'
+import * as path from 'path'
+import * as url from 'url'
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
 const appName = 'WhatsApp linux'
-const iconURL = 'assets/png/64x64.png'
-const TrayIconURL = 'assets/png/16x16.png'
 const bgColor = '#f2f2f2'
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     backgroundColor: bgColor,
     height: 600,
-    icon: iconURL,
+    icon: path.join(__dirname, 'icon/64x64.png'),
     width: 900,
   })
 
