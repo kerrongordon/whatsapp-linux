@@ -21,6 +21,7 @@ deploy:
   api_key: "$GITHUB_TOKEN"
   file_glob: true
   file:
+    - "dist/*.zip"
     - "dist/*.deb"
     - "dist/*.rpm"
     - "dist/*.tar.gz"

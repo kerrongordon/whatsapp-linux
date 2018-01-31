@@ -18,20 +18,25 @@
 
     "linux": {
       "category": "Network",
-      "icon": "app/icon/256x256.png",
+      "icon": "app/icon/",
       "target": [
-        "AppImage",
+        "zip",
         "deb",
         "rpm",
         "tar.gz",
-        "tar.xz"
+        "tar.xz",
+        "AppImage"
+      ],
+      "arch": [
+        "x64",
+        "ia32"
       ]
     }
   },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js",
+    "start": "npm run build && electron ./app/main.js",
     "prod": "build --linux"
   },
   "devDependencies": {
