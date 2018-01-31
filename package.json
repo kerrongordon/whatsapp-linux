@@ -1,6 +1,6 @@
 {
   "name": "whatsapp",
-  "version": "1.0.0",
+  "version": "1.0.1-beta",
   "description": "fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
   "maintainers": ["Kerron Gordon"],
