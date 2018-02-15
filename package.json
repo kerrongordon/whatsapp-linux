@@ -1,21 +1,21 @@
 {
   "name": "whatsapp",
-  "version": "1.0.1-beta",
-  "description": "fast, simple, secure messaging and calling for free*, available on phones all over the world.",
+  "version": "1.1.0",
+  "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
-  "maintainers": ["Kerron Gordon"],
-  
+  "maintainers": [
+    "Kerron Gordon"
+  ],
   "author": {
     "name": "Kerron Gordon",
     "email": "kgpsounds.com@gmail.com",
     "url": "https://kerron-gordon.firebaseapp.com"
   },
   "license": "MIT",
-  "homepage": "https://kerron-gordon.firebaseapp.com",
+  "homepage": "https://github.com/kerrongordon/whatsapp-linux",
   "build": {
     "appId": "com.github.kerrongordon.whatsapp",
     "productName": "WhatsApp",
-
     "linux": {
       "category": "Network",
       "icon": "app/icon/",
@@ -32,11 +32,11 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./app/main.js",
-    "prod": "build --linux"
+    "start": "yarn build && electron ./app/main.js",
+    "prod": "yarn build && build --linux"
   },
   "devDependencies": {
-    "electron": "^1.7.11",
+    "electron": "^1.8.2",
     "electron-builder": "^20.0.4",
     "tslint": "^5.9.1",
     "typescript": "^2.6.2"
