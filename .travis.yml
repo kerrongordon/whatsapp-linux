@@ -2,7 +2,6 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
-  - "8"
   - "10"
 script:
     - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -

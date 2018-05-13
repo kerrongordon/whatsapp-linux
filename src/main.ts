@@ -3,12 +3,9 @@ import * as path from 'path'
 import * as url from 'url'
 
 require('electron-context-menu')({
-	prepend: (params: Electron.ContextMenuParams, browserWindow: BrowserWindow) => [{
-    // label: 'Rainbow',
-
-		// Only show it when right-clicking images
-		visible: params.mediaType === 'image'
-	}]
+  prepend: (params: Electron.ContextMenuParams, browserWindow: BrowserWindow) => [{
+    visible: params.mediaType === 'image',
+  }],
 })
 
 let mainWindow: Electron.BrowserWindow
@@ -30,10 +27,6 @@ const createWindow = () => {
   mainWindow.setAutoHideMenuBar(true)
 }
 
-const closeApp = () => {
-  return app.quit()
-}
+app.on('window-all-closed', () => app.quit())
 
-app.on('ready', () => {
-  createWindow()
-})
+app.on('ready', () => createWindow())
