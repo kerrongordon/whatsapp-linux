@@ -1,6 +1,5 @@
 import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
-import * as url from 'url'
 
 require('electron-context-menu')({
   prepend: (params: Electron.ContextMenuParams, browserWindow: BrowserWindow) => [{
@@ -27,6 +26,5 @@ const createWindow = () => {
   mainWindow.setAutoHideMenuBar(true)
 }
 
-app.on('window-all-closed', () => app.quit())
-
 app.on('ready', () => createWindow())
+app.on('window-all-closed', () => app.quit())

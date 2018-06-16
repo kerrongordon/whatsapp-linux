@@ -27,6 +27,7 @@ deploy:
     - "dist/*.tar.gz"
     - "dist/*.tar.xz"
     - "dist/*.AppImage"
+    - "dist/*.pacman"
   skip_cleanup: true
   on:
     tags: true
