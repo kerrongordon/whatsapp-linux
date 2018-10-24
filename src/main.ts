@@ -17,13 +17,15 @@ const createWindow = () => {
     backgroundColor: bgColor,
     height: 600,
     icon: path.join(__dirname, 'icon/64x64.png'),
+    show: false,
     width: 900,
   })
 
   mainWindow.loadURL(appURL)
   mainWindow.setTitle(appName)
-  mainWindow.setMenuBarVisibility(false)
   mainWindow.setAutoHideMenuBar(true)
+  mainWindow.setMenuBarVisibility(false)
+  mainWindow.on('ready-to-show', () => mainWindow.show())
 }
 
 app.on('ready', () => createWindow())
