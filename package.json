@@ -37,7 +37,7 @@
     "prod": "yarn build && build --linux"
   },
   "devDependencies": {
-    "electron": "3.0.0",
+    "electron": "3.0.10",
     "electron-builder": "20.15.1",
     "tslint": "5.10.0",
     "typescript": "3.1.3"
