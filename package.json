@@ -34,7 +34,7 @@
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "yarn build && electron ./app/main.js",
-    "prod": "yarn build && build --linux"
+    "prod": "yarn build && electron-builder"
   },
   "devDependencies": {
     "typescript": "3.6.2",
