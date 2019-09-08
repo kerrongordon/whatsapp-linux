@@ -1,6 +1,6 @@
 {
   "name": "whatsapp",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
   "maintainers": [
@@ -37,12 +37,12 @@
     "prod": "yarn build && build --linux"
   },
   "devDependencies": {
-    "typescript": "3.2.2",
-    "electron-builder": "20.38.3",
-    "electron": "3.0.11",
-    "tslint": "5.11.0"
+    "typescript": "3.6.2",
+    "electron-builder": "21.2.0",
+    "electron": "6.0.7",
+    "tslint": "5.19.0"
   },
   "dependencies": {
-    "electron-context-menu": "^0.10.0"
+    "electron-context-menu": "^0.15.0"
   }
 }
