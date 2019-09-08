@@ -20,21 +20,18 @@
       "category": "Network",
       "icon": "app/icon/",
       "target": [
-        "zip",
         "deb",
         "rpm",
-        "tar.gz",
-        "tar.xz",
         "AppImage",
-        "pacman"
+        "snap"
       ]
     }
   },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "yarn build && electron ./app/main.js",
-    "prod": "yarn build && electron-builder"
+    "start": "npm run build && electron ./app/main.js",
+    "build:linux": "npm run build && npm run lint && electron-builder --linux"
   },
   "devDependencies": {
     "typescript": "3.6.2",
