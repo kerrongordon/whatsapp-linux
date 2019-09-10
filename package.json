@@ -34,10 +34,10 @@
     "build:linux": "npm run build && npm run lint && electron-builder --linux"
   },
   "devDependencies": {
-    "typescript": "3.6.2",
+    "typescript": "3.6.3",
     "electron-builder": "21.2.0",
-    "electron": "6.0.7",
-    "tslint": "5.19.0"
+    "electron": "6.0.8",
+    "tslint": "5.20.0"
   },
   "dependencies": {
     "electron-context-menu": "^0.15.0"
