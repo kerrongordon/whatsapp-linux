@@ -1,0 +1,21 @@
+
+  name: whatsapplinux
+  version: git
+  summary: Simple. Secure. Reliable messaging.
+  description: |
+    With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.
+
+  grade: devel # must be 'stable' to release into candidate/stable channels
+  confinement: devmode # use 'strict' once you have the right plugs and slots
+
+  confinement: devmode
+  base: core18
+
+  parts:
+    whatsapplinux:
+      plugin: nodejs
+      source: .
+
+  apps:
+    whatsapplinux:
+      command: whatsapplinux
