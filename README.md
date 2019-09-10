@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/kerrongordon/whatsapp-linux.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/kerrongordon/whatsapp-linux.svg?branch=master)](https://travis-ci.org/kerrongordon/whatsapp-linux)
+[![WhatsApp unofficial](https://snapcraft.io/whatsapplinux/badge.svg)](https://snapcraft.io/whatsapplinux)
 
 Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.
 
