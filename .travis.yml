@@ -27,9 +27,10 @@ deploy:
   on:
     tags: true
 
-
 deploy:
   provider: snap
   snap: dist/*.snap
   channel: edge
   skip_cleanup: true
+  on:
+    tags: true

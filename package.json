@@ -1,6 +1,6 @@
 {
   "name": "whatsapplinux",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
   "maintainers": [
