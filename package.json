@@ -1,6 +1,6 @@
 {
-  "name": "whatsapp",
-  "version": "1.1.0",
+  "name": "whatsapplinux",
+  "version": "2.1.1",
   "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
   "maintainers": [
@@ -14,31 +14,32 @@
   "license": "MIT",
   "homepage": "https://github.com/kerrongordon/whatsapp-linux",
   "build": {
-    "appId": "com.github.kerrongordon.whatsapp",
+    "appId": "com.github.kerrongordon.whatsapplinux",
     "productName": "WhatsApp",
     "linux": {
       "category": "Network",
       "icon": "app/icon/",
       "target": [
-        "zip",
         "deb",
         "rpm",
-        "tar.gz",
-        "tar.xz",
-        "AppImage"
+        "AppImage",
+        "snap"
       ]
     }
   },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "yarn build && electron ./app/main.js",
-    "prod": "yarn build && build --linux"
+    "start": "npm run build && electron ./app/main.js",
+    "build:linux": "npm run build && npm run lint && electron-builder --linux"
   },
   "devDependencies": {
-    "electron": "^1.8.2",
-    "electron-builder": "^20.0.4",
-    "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
+    "typescript": "3.6.3",
+    "electron-builder": "21.2.0",
+    "electron": "6.0.8",
+    "tslint": "5.20.0"
+  },
+  "dependencies": {
+    "electron-context-menu": "^0.15.0"
   }
 }

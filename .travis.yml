@@ -1,32 +1,28 @@
-dist: trusty
+dist: xenial
 sudo: required
 language: node_js
 node_js:
-  - "8"
+  - "10"
 script:
-    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    - sudo apt-get update && sudo apt-get install yarn
-    - yarn global add electron
-    - yarn global add electron-builder
-    - yarn install
+    - npm i -g electron
+    - npm i -g electron-builder
+    - npm install
 install:
-    - sudo apt-get install rpm
+    - sudo apt-get update
+    - sudo apt-get install --no-install-recommends -y libopenjp2-tools
+    - sudo apt-get install --no-install-recommends -y rpm
+    - sudo apt-get install --no-install-recommends -y snapcraft
 after_success:
-    - yarn lint
-    - yarn build
-    - yarn prod
+    - npm run build:linux
 deploy:
   provider: releases
   api_key: "$GITHUB_TOKEN"
   file_glob: true
   file:
-    - "dist/*.zip"
     - "dist/*.deb"
     - "dist/*.rpm"
-    - "dist/*.tar.gz"
-    - "dist/*.tar.xz"
     - "dist/*.AppImage"
+    - "dist/*.snap"
   skip_cleanup: true
   on:
     tags: true

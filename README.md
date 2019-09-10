@@ -9,20 +9,32 @@ Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secu
 
 [Linux Packages](https://github.com/kerrongordon/whatsapp-linux/releases/latest)
 
-## How To Use
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com)
 
 ```bash
+sudo apt-get install --no-install-recommends -y libopenjp2-tools
+sudo apt-get install --no-install-recommends -y rpm
+sudo apt-get install --no-install-recommends -y snapcraft
+```
+
+## How To Use
+
+To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/)
+
+```bash
+
+npm i -g electron
+npm i -g electron-builder
+
 # Clone this repository
 git clone https://github.com/kerrongordon/whatsapp-linux.git
 # Go into the repository
 cd whatsapp-linux
 # Install dependencies
-yarn install
+npm install
 # Run the app
-yarn start
+npm start
 # Build the app
-yarn prod
+npm run build:linux
 ```
 

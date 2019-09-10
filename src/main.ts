@@ -1,10 +1,16 @@
 import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
-import * as url from 'url'
+
+require('electron-context-menu')({
+  prepend: (params: Electron.ContextMenuParams, browserWindow: BrowserWindow) => [{
+    visible: params.mediaType === 'image',
+  }],
+})
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
-const appName = 'WhatsApp linux'
+const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/76.0.3809.100 Chrome/76.0.3809.100 Safari/537.36'
+const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 
 const createWindow = () => {
@@ -12,19 +18,16 @@ const createWindow = () => {
     backgroundColor: bgColor,
     height: 600,
     icon: path.join(__dirname, 'icon/64x64.png'),
+    show: false,
     width: 900,
   })
 
-  mainWindow.loadURL(appURL)
+  mainWindow.loadURL(appURL, { userAgent })
   mainWindow.setTitle(appName)
-  mainWindow.setMenuBarVisibility(false)
   mainWindow.setAutoHideMenuBar(true)
+  mainWindow.setMenuBarVisibility(false)
+  mainWindow.on('ready-to-show', () => mainWindow.show())
 }
 
-const closeApp = () => {
-  return app.quit()
-}
-
-app.on('ready', () => {
-  createWindow()
-})
+app.on('ready', () => createWindow())
+app.on('window-all-closed', () => app.quit())
