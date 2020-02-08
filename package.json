@@ -40,6 +40,6 @@
     "tslint": "5.20.0"
   },
   "dependencies": {
-    "electron-context-menu": "^0.15.0"
+    "electron-context-menu": "^0.16.0"
   }
 }
