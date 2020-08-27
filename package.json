@@ -34,7 +34,7 @@
     "build:linux": "npm run build && npm run lint && electron-builder --linux"
   },
   "devDependencies": {
-    "typescript": "3.6.3",
+    "typescript": "3.9.7",
     "electron-builder": "21.2.0",
     "electron": "6.0.8",
     "tslint": "5.20.0"
