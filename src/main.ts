@@ -9,7 +9,7 @@ require('electron-context-menu')({
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
-const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36';
+const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36';
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 
