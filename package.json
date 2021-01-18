@@ -1,6 +1,6 @@
 {
   "name": "whatsapplinux",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
   "main": "app/main.js",
   "maintainers": [
@@ -17,6 +17,10 @@
     "appId": "com.github.kerrongordon.whatsapplinux",
     "productName": "WhatsApp",
     "linux": {
+      "desktop": {
+        "StartupWMClass": "whatsapplinux"
+      },
+      "maintainer": "Kerron Gordon",
       "category": "Network",
       "icon": "app/icon/",
       "target": [

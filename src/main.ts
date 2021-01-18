@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, nativeImage, nativeTheme } from 'electron'
 import * as path from 'path'
 
 require('electron-context-menu')({
@@ -13,14 +13,19 @@ const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, li
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 
+const iconLink = nativeImage.createFromPath(path.join(__dirname, 'icon/1024x1024.png'))
+
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     backgroundColor: bgColor,
-    height: 600,
-    icon: path.join(__dirname, 'icon/64x64.png'),
+    height: 700,
+    center: true,
+    icon: iconLink,
     show: false,
-    width: 900,
+    width: 1200,
   })
+
+  nativeTheme.themeSource = 'system'
 
   mainWindow.loadURL(appURL, { userAgent })
   mainWindow.setTitle(appName)
