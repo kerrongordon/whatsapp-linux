@@ -2,7 +2,7 @@ import { app, BrowserWindow, nativeImage, nativeTheme } from 'electron'
 import * as path from 'path'
 
 require('electron-context-menu')({
-  prepend: (params: Electron.ContextMenuParams, browserWindow: BrowserWindow) => [{
+  prepend: (params: Electron.ContextMenuParams) => [{
     visible: params.mediaType === 'image',
   }],
 })
