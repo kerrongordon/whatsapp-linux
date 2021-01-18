@@ -25,7 +25,8 @@
       "icon": "app/icon/",
       "target": [
         "deb",
-        "AppImage"
+        "AppImage",
+        "rpm"
       ]
     }
   },
