@@ -38,7 +38,7 @@ jobs:
       - run: npm run build
 
   app_build_linux:
-    name: Run Build
+    name: Run Linux Build
     needs: [app_build]
     runs-on: ubuntu-latest
     strategy:
@@ -50,6 +50,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sudo apt-get install build-essential -y
       - run: npm install
       - run: npm run build:linux
