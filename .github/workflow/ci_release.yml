@@ -1,0 +1,55 @@
+name: CI Release Build
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  app_lint:
+    name: Run Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: "15.x"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run lint
+
+  app_build:
+    name: Run Build
+    needs: [app_lint]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: "15.x"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build
+
+  app_build_linux:
+    name: Run Build
+    needs: [app_build]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: "15.x"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: apt install build-essential -y
+      - run: npm install
+      - run: npm run build:linux
