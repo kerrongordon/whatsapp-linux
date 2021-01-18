@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["10", "12"]
+        node-version: ["15"]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["10", "12"]
+        node-version: ["15"]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -44,13 +44,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ["10", "12"]
+        node-version: ["15"]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: apt install build-essential -y
+      - run: sudo apt-get install build-essential -y
       - run: npm install
       - run: npm run build:linux
