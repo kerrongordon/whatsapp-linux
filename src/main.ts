@@ -12,8 +12,20 @@ const appURL = 'https://web.whatsapp.com/'
 const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36';
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
-
+const gotTheLock = app.requestSingleInstanceLock()
 const iconLink = nativeImage.createFromPath(path.join(__dirname, 'icon/1024x1024.png'))
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      if (!mainWindow.isVisible()) mainWindow.show()
+      mainWindow.focus()
+    }
+  })
+}
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
