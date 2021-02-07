@@ -95,4 +95,4 @@ app.whenReady().then(() => {
 })
 
 app.on('ready', () => createWindow())
-app.on('window-all-closed', () => app.quit());
+app.on('window-all-closed', () => app.quit())
