@@ -9,6 +9,7 @@ require('electron-context-menu')({
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
+const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36';
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 
@@ -29,7 +30,7 @@ const createWindow = () => {
 
   nativeTheme.themeSource = 'system'
 
-  mainWindow.loadURL(appURL)
+  mainWindow.loadURL(appURL, { userAgent })
   mainWindow.setTitle(appName)
   mainWindow.setAutoHideMenuBar(true)
   mainWindow.setMenuBarVisibility(false)
