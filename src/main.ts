@@ -1,4 +1,4 @@
-import { app, BrowserWindow, nativeImage, nativeTheme, Menu, Tray } from 'electron'
+import { app, BrowserWindow, nativeImage, nativeTheme, Menu, Tray, shell } from 'electron'
 import * as path from 'path'
 
 require('electron-context-menu')({
@@ -22,6 +22,9 @@ const createWindow = () => {
     icon: iconLink,
     show: false,
     width: 1200,
+    webPreferences: {
+      nativeWindowOpen: true
+    }
   })
 
   nativeTheme.themeSource = 'system'
@@ -35,6 +38,11 @@ const createWindow = () => {
     event.preventDefault()
     mainWindow.hide()
   })
+
+  mainWindow.webContents.on('new-window', (e, url) => {
+    e.preventDefault()
+    shell.openExternal(url)
+  });
 }
 
 let tray = null
