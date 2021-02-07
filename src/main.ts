@@ -1,4 +1,13 @@
-import { app, BrowserWindow, nativeImage, nativeTheme, Menu, Tray, shell } from 'electron'
+import {
+  app,
+  BrowserWindow,
+  nativeImage,
+  nativeTheme,
+  Menu,
+  Tray,
+  shell,
+} from 'electron'
+
 import * as path from 'path'
 
 require('electron-context-menu')({
@@ -9,11 +18,14 @@ require('electron-context-menu')({
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
-const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36';
+// eslint-disable-next-line max-len
+const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36'
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 const gotTheLock = app.requestSingleInstanceLock()
-const iconLink = nativeImage.createFromPath(path.join(__dirname, 'icon/1024x1024.png'))
+const iconLink = nativeImage.createFromPath(
+  path.join(__dirname, 'icon/1024x1024.png'),
+)
 
 if (!gotTheLock) {
   app.quit()
@@ -36,8 +48,8 @@ const createWindow = () => {
     show: false,
     width: 1200,
     webPreferences: {
-      nativeWindowOpen: true
-    }
+      nativeWindowOpen: true,
+    },
   })
 
   nativeTheme.themeSource = 'system'
@@ -55,11 +67,13 @@ const createWindow = () => {
   mainWindow.webContents.on('new-window', (e, url) => {
     e.preventDefault()
     shell.openExternal(url)
-  });
+  })
 }
 
 let tray = null
-const trayIcon = nativeImage.createFromPath(path.join(__dirname, 'icon/32x32.png'))
+const trayIcon = nativeImage.createFromPath(
+  path.join(__dirname, 'icon/32x32.png'),
+)
 
 app.whenReady().then(() => {
   tray = new Tray(trayIcon)
@@ -67,18 +81,18 @@ app.whenReady().then(() => {
     {
       label: 'Toggle', click() {
         mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
-      }
+      },
     },
     {
       label: 'Quit', click() {
-        mainWindow.destroy();
-        app.quit();
-      }
-    }
-  ]);
+        mainWindow.destroy()
+        app.quit()
+      },
+    },
+  ])
   tray.setToolTip(appName)
   tray.setContextMenu(contextMenu)
 })
 
 app.on('ready', () => createWindow())
-app.on('window-all-closed', () => app.quit())
+app.on('window-all-closed', () => app.quit());
