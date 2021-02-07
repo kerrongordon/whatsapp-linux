@@ -1,4 +1,4 @@
-import { app, BrowserWindow, nativeImage, nativeTheme } from 'electron'
+import { app, BrowserWindow, nativeImage, nativeTheme, Menu, Tray } from 'electron'
 import * as path from 'path'
 
 require('electron-context-menu')({
@@ -9,7 +9,6 @@ require('electron-context-menu')({
 
 let mainWindow: Electron.BrowserWindow
 const appURL = 'https://web.whatsapp.com/'
-const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36';
 const appName = 'WhatsApp'
 const bgColor = '#f2f2f2'
 
@@ -27,12 +26,38 @@ const createWindow = () => {
 
   nativeTheme.themeSource = 'system'
 
-  mainWindow.loadURL(appURL, { userAgent })
+  mainWindow.loadURL(appURL)
   mainWindow.setTitle(appName)
   mainWindow.setAutoHideMenuBar(true)
   mainWindow.setMenuBarVisibility(false)
   mainWindow.on('ready-to-show', () => mainWindow.show())
+  mainWindow.on('close', (event) => {
+    event.preventDefault()
+    mainWindow.hide()
+  })
 }
+
+let tray = null
+const trayIcon = nativeImage.createFromPath(path.join(__dirname, 'icon/32x32.png'))
+
+app.whenReady().then(() => {
+  tray = new Tray(trayIcon)
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Toggle', click() {
+        mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+      }
+    },
+    {
+      label: 'Quit', click() {
+        mainWindow.destroy();
+        app.quit();
+      }
+    }
+  ]);
+  tray.setToolTip(appName)
+  tray.setContextMenu(contextMenu)
+})
 
 app.on('ready', () => createWindow())
 app.on('window-all-closed', () => app.quit())
