@@ -71,7 +71,7 @@ const createWindow = () => {
 
   mainWindow.webContents.on('did-finish-load', () => {
     // eslint-disable-next-line max-len
-    const code = `if (document.body.innerText.replace(/n/g, ' ').search(/whatsapp works with.*to use whatsapp.*update/i) === 0) navigator.serviceWorker.getRegistration().then(function (r) { r.unregister(); document.location.reload() });`
+    const code = `if (document.body.innerText.replace(/\\n/g, ' ').search(/whatsapp works with.*to use whatsapp.*update/i) === 0) navigator.serviceWorker.getRegistration().then(function (r) { r.unregister(); document.location.reload() });`
     mainWindow.webContents.executeJavaScript(code)
   })
 }
