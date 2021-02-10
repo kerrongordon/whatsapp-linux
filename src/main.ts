@@ -42,11 +42,11 @@ if (!gotTheLock) {
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     backgroundColor: bgColor,
-    height: 700,
+    height: 600,
     center: true,
     icon: iconLink,
     show: false,
-    width: 1200,
+    width: 1000,
     webPreferences: {
       nativeWindowOpen: true,
     },
@@ -67,6 +67,12 @@ const createWindow = () => {
   mainWindow.webContents.on('new-window', (e, url) => {
     e.preventDefault()
     shell.openExternal(url)
+  })
+
+  mainWindow.webContents.on('did-finish-load', () => {
+    // eslint-disable-next-line max-len
+    const code = `if (document.body.innerText.replace(/n/g, ' ').search(/whatsapp works with.*to use whatsapp.*update/i) === 0) navigator.serviceWorker.getRegistration().then(function (r) { r.unregister(); document.location.reload() });`
+    mainWindow.webContents.executeJavaScript(code)
   })
 }
 
