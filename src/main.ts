@@ -58,7 +58,14 @@ const createWindow = () => {
   mainWindow.setTitle(appName)
   mainWindow.setAutoHideMenuBar(true)
   mainWindow.setMenuBarVisibility(false)
-  mainWindow.on('ready-to-show', () => mainWindow.show())
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show()
+    mainWindow.webContents.on('did-finish-load', () => {
+      mainWindow.webContents.executeJavaScript(`function recheck () { if (document.querySelector("a[href='https://support.google.com/chrome/answer/95414']")) { console.log("reload"); navigator.serviceWorker.getRegistration().then((registration) => {registration.unregister(); document.location.reload();});} setTimeout(recheck, 5000); // callback}recheck();`)
+    })
+  })
+
+
   mainWindow.on('close', (event) => {
     event.preventDefault()
     mainWindow.hide()
@@ -67,12 +74,6 @@ const createWindow = () => {
   mainWindow.webContents.on('new-window', (e, url) => {
     e.preventDefault()
     shell.openExternal(url)
-  })
-
-  mainWindow.webContents.on('did-finish-load', () => {
-    // eslint-disable-next-line max-len
-    const code = `if (document.body.innerText.replace(/\\n/g, ' ').search(/whatsapp works with.*to use whatsapp.*update/i) === 0) navigator.serviceWorker.getRegistration().then(function (r) { r.unregister(); document.location.reload() });`
-    mainWindow.webContents.executeJavaScript(code)
   })
 }
 
