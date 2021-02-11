@@ -44,7 +44,7 @@
     "electron-builder": "22.9.1",
     "eslint": "7.19.0",
     "eslint-config-google": "0.14.0",
-    "typescript": "4.1.4"
+    "typescript": "4.1.5"
   },
   "dependencies": {
     "electron-context-menu": "^2.3.0"
